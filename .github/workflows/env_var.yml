@@ -24,4 +24,10 @@ jobs:
             echo "The platform is: ${{ env.platform }}"
             echo "The region is $region"
 
+      - name: Display GitHub default Env Var
+        run: |
+            echo "GitHub Actor: $GITHUB_ACTOR"
+            echo "GitHub Actor: $GITHUB_REF"
+
+
      
