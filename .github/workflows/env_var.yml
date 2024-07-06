@@ -1,0 +1,26 @@
+name: ENV_VAR
+
+on:
+  push:
+    branches: [ test_ci ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env: 
+        platform: Azure
+        region: central
+        profile_path: profile/
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Use the custom enviroment variable in the command script
+      - name: Display custom enviroment variable
+        run: |
+            echo "The platform is: ${{ env.platform }}"
+            echo "The region is $region"
+
+     
