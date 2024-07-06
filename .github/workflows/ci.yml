@@ -2,9 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ test_ci ]
 
   workflow_dispatch:
 
@@ -25,3 +23,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      # Runs another command
+      - name: Run another script
+        run: echo This is a new command!
