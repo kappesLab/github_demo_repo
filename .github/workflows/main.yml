@@ -1,0 +1,28 @@
+name: outputs_demo
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    
+    outputs:
+      output1: ${{ step.step1.outputs.test }}
+      output2: ${{ step.step2.outputs.test }}
+      
+    steps:
+      - id: step1
+        run: echo "::set-ouput name=test::Hello"
+      - id: step2
+        run: echo "::set-ouput name=test::world!"
+
+ 
+     
+
+
