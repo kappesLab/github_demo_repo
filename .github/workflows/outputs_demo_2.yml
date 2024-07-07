@@ -7,7 +7,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-        output1: ${{ steps.step1.outputs.data }}
+        output1: ${{ steps.contents.outputs.data }}
       
     steps:
         - name: Checkout branch
@@ -18,5 +18,17 @@ jobs:
           with:
             python-version: '3.10' 
 
- 
+        - name: Run Python script
+          id: contents
+          run: |
+            python create_file.py
+            contents=$( cat read_me.txt )
+            echo "data=$contents" >> "$GITHUB_OUTPUT"
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+
+    steps:
+      - run: echo ${{ needs.job1.outputs.output1 }}
 
