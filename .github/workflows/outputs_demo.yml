@@ -37,7 +37,7 @@ jobs:
           OUTPUT2: ${{needs.job1.outputs.output2}}
           OUTPUT3: ${{needs.job1.outputs.output3}}
      
-        run: echo "$OUTPUT1 $OUTPUT2 - $OUPUT3"
+        run: echo "$OUTPUT1 $OUTPUT2 - $OUTPUT3"
 
  
      
